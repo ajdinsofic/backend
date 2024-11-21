@@ -7,7 +7,7 @@ namespace VolanGo.RequestBodies
 {
     public class LoginAdmin
     {
-        public int AdminId;
-        public string Password;
+        public int AdminId {get; set;}
+        public string Password {get; set;}
     }
 }

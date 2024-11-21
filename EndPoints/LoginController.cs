@@ -20,10 +20,11 @@ namespace VolanGo.EndPoints
             _context = context;
         }
 
-        [HttpGet("admin")]
+        [HttpPost("admin")]
          public async Task<IActionResult> LoginAdmin([FromBody] LoginAdmin Ladmin){
 
-           var admin = _context.Admins.Where(a => a.AdminId == Ladmin.AdminId && a.Password == Ladmin.Password).FirstOrDefaultAsync();
+           var admin = _context.Admins
+                .FirstOrDefault(a => a.AdminId == Ladmin.AdminId && a.Password == Ladmin.Password);
            if(admin != null){
              return Ok(new {Ladmin.AdminId, Ladmin.Password});
            }
