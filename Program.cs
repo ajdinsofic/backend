@@ -38,8 +38,10 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Konfiguracija baze podataka
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("db1")));
 
 var app = builder.Build();
 
@@ -50,7 +52,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "VolanGO API v1");
+        c.SwaggerEndpoint("http://localhost:5136/swagger/v1/swagger.json", "VolanGO API v1");
         c.RoutePrefix = string.Empty; // Swagger UI dostupan na root URL-u
     });
 }

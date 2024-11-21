@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using VolanGo.DbConnection;
 
-namespace VolanGo.DbConnection
+namespace VolanGo.EndPoints
 {
-    public class AutoConnect
+    [ApiController]
+    [Route("logout")]
+    public class LogoutController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public AutoConnect( AppDbContext context)
+        public LogoutController(AppDbContext context)
         {
             _context = context;
         }
