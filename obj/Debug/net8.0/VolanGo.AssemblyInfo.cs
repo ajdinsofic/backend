@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VolanGo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e79e88fe314239d52bf02010c74cdc16704847a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e73448e2485a9c90a72c79954d1395100ef3aee4")]
 [assembly: System.Reflection.AssemblyProductAttribute("VolanGo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VolanGo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

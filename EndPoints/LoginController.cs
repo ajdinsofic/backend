@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VolanGo.DbConnection;
+using VolanGo.Generate;
 using VolanGo.RequestBodies;
 
 namespace VolanGo.EndPoints
@@ -14,10 +15,12 @@ namespace VolanGo.EndPoints
     public class LoginController : ControllerBase
     {
         private readonly AppDbContext _context;
+        public GenerateToken _jwtToken;
 
         public LoginController(AppDbContext context)
         {
             _context = context;
+            _jwtToken = new GenerateToken();
         }
 
         [HttpPost("admin")]
@@ -26,7 +29,7 @@ namespace VolanGo.EndPoints
            var admin = _context.Admins
                 .FirstOrDefault(a => a.AdminId == Ladmin.AdminId && a.Password == Ladmin.Password);
            if(admin != null){
-             return Ok(new {Ladmin.AdminId, Ladmin.Password});
+             return Ok(new {LoginToken = _jwtToken.GenerateJWToken(Ladmin.AdminId.ToString(), "user")});
            }
            else if(admin == null){
                 return Ok(new {succes = false});
@@ -41,7 +44,8 @@ namespace VolanGo.EndPoints
                 .FirstOrDefault(u => u.Username == Luser.Username && u.Password == Luser.Password);
             if (user != null)
             {
-                return Ok(new {Luser.Username, Luser.Password});
+                string LoginToken = _jwtToken.GenerateJWToken(Luser.Username, "user");
+                return Ok(new {LoginToken});
             }
             else if(user == null){
                 return Ok(new {succes = false, message = "Neispravan username ili šifra."});

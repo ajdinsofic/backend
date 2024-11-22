@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using VolanGo.DbConnection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using VolanGo;
 
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -16,6 +20,26 @@ builder.Services.AddCors(options =>
                           policy.AllowAnyMethod();
                       });
 });
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            // Validacija izdavača i korisnika
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+
+            // Izdavač i publika mogu biti specifični za tvoju aplikaciju
+            ValidIssuer = builder.Configuration[JWTokenInformation.Issuer],   // Odredi izdavača
+            ValidAudience = builder.Configuration[  JWTokenInformation.Audience], // Odredi publiku
+
+            // Tajni ključ za verifikaciju JWT tokena
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTokenInformation.SecretKey))
+        };
+    });
 
 // Dodavanje servisa
 builder.Services.AddControllers();

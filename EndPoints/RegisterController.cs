@@ -12,6 +12,11 @@ using Microsoft.AspNetCore.Cors;
 using RS1_2024_25.API.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using VolanGo.RequestBodies;
+using VolanGo.Generate;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace VolanGo.EndPoints
 {
@@ -21,10 +26,12 @@ namespace VolanGo.EndPoints
   public class RegisterController : ControllerBase
   {
         private readonly AppDbContext _context;
+        private readonly GenerateToken _jwtToken;
 
         public RegisterController(AppDbContext context)
         {
             _context = context;
+            _jwtToken = new GenerateToken();
         }
  
         /// REGISTRACIJA ZA ADMINA
@@ -39,10 +46,11 @@ namespace VolanGo.EndPoints
              // Dodaj novu osobu u bazu
              await _context.Users.AddAsync(user);
              await _context.SaveChangesAsync();
-     
-             return Ok("Uspjesna verifikacija");
-         }
-         
+
+             var token = _jwtToken.GenerateJWToken(user.UserId.ToString(), "user");
+             return Ok(new { token });
+        }
+
     }
   }
   
