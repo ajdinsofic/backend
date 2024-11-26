@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lYaKlACNBwY=",
+  "dgSpecHash": "Ufbv/ngP4eE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ajdin\\Desktop\\VolanGo\\VolanGo.csproj",
+  "projectFilePath": "C:\\Users\\ajdin\\Desktop\\NoviProjekt\\Random\\VolanGo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ajdin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ajdin\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

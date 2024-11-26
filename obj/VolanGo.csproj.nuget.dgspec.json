@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ajdin\\Desktop\\VolanGo\\VolanGo.csproj": {}
+    "C:\\Users\\ajdin\\Desktop\\NoviProjekt\\Random\\VolanGo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ajdin\\Desktop\\VolanGo\\VolanGo.csproj": {
+    "C:\\Users\\ajdin\\Desktop\\NoviProjekt\\Random\\VolanGo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ajdin\\Desktop\\VolanGo\\VolanGo.csproj",
+        "projectUniqueName": "C:\\Users\\ajdin\\Desktop\\NoviProjekt\\Random\\VolanGo.csproj",
         "projectName": "VolanGo",
-        "projectPath": "C:\\Users\\ajdin\\Desktop\\VolanGo\\VolanGo.csproj",
+        "projectPath": "C:\\Users\\ajdin\\Desktop\\NoviProjekt\\Random\\VolanGo.csproj",
         "packagesPath": "C:\\Users\\ajdin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ajdin\\Desktop\\VolanGo\\obj\\",
+        "outputPath": "C:\\Users\\ajdin\\Desktop\\NoviProjekt\\Random\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
